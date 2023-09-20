@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import firebase from './config/fire';
-import Login from './Login';
-import Home from './Home'
+import firebase from './config/fire.js';
+import Login from './Login.js';
+import Home from './Home.js'
 
 export default class App extends Component {
   constructor(props){

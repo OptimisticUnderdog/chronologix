@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import firebase from './config/fire';
-import './components/Login.css';
+import './login.css';
+import firebase from './config/fire.js'
+
 
 export default class Login extends Component {
     constructor(props){
@@ -35,19 +36,23 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <div>
-                <form>
-                    <input type="email" id="email" name="email" placeholder="email"
+            <div class="login-container">
+                <h1>Welcome to ChronoLogix</h1>
+                <p>Empowering Efficiency, Elevating Time.</p>
+                <form class="form">
+                    <h2>Check-In</h2>
+                    <input type="email" id="email" name="email" placeholder="Email"
                         onChange={this.handleChange}
                         value={this.state.email}>
                     </input>
-                    <input type="password" id="password" name="password" placeholder="passsword"
+                    <input type="password" id="password" name="password" placeholder="Passsword"
                         onChange={this.handleChange}
                         value={this.state.password}>
                     </input>
-                    <button onClick={this.login}>Login</button>
-                    <button onClick={this.signup}>Sign-Up</button>
+                    <button onClick={this.login}>Submit</button>
                 </form>
+                <a>Forgot password?</a>
+                <a>Register</a>
             </div>
         )
     }

@@ -1,0 +1,46 @@
+/* CSS for styling the login form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of the viewport height */
+}
+  
+.login-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+  
+ /* Center the form horizontally and vertically */
+.login-form {
+    width: 300px; /* Adjust the width as needed */
+    text-align: center;
+}
+  
+/* Style input fields and buttons */
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Adjust the button's background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.login-form button:hover {
+    background-color: #0056b3; /* Adjust the button's hover color */
+}
+  

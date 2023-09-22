@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import firebase from './config/fire.js';
+import Signout from './Signout';
 import Login from './Login.js';
 import Home from './Home.js'
 

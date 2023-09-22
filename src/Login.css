@@ -1,84 +1,89 @@
-/* Style the form container */
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 45vh;
-    background-color: #afafaf; 
-    padding-top: 100px;
+/* hero container */
+.hero {
+  position: relative; 
+  height: 50vh; 
+  background-image: url('../public/banner-image.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  color: rgb(0, 0, 0); 
+  text-align: center; 
 }
-  
-  /* Style the form wrapper (to separate login and signup forms) */
-.form-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    max-width: 40px;
+
+/* Style the heading elements */
+.hero h1 {
+  font-weight: 900;
+  position: relative;
+  color: white;
+  top: 20%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
-  
-  /* Style the login and signup forms */
+
+/*.hero h1 {
+  font-size: 35px;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}*/
+
+.sub-heading {
+  position: relative;
+  color: white;
+  font-size: larger;
+  top: 25%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
 .form {
-    padding: 20px;
-    padding-bottom: 7%;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border: 1px solid #b4b4cc;
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-right: 10px; 
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 60px 10px 80px 10px;
+  text-align: center;
+  max-width: 400px;
 }
-  
-  /* Style the input fields */
+
+.form h1 {
+  margin-bottom: 20px;
+}
+
 .form input[type="email"],
 .form input[type="password"] {
-    width: 93%;
-    padding: 15px;
-    margin-bottom: 40px;
-    border: 1px solid #b4b4cc;
-    border-radius: 3px;
+  width: 80%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
-  
-  /* Style the buttons */
+
 .form button {
-    width: 100%;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 50%;
+  padding: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
 }
-  
+
 .form button:hover {
-    background-color: #0056b3; /* Button background color on hover */
-}
-  
-  /* Style form headings */
-.login-container h1 {
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 3.1rem;
+  background-color: #0056b3;
 }
 
-.form h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+.form-container a {
+  text-decoration: none;
+  color: #007bff;
+  margin-top: 10px;
+  display: block;
+  cursor: pointer;
 }
-
-.login-container a {
-    font-size: medium;
-    padding-top: 1%;
-    cursor: pointer;
-}
-  
-  /* Style form links or additional text */
-.login-container p {
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-  

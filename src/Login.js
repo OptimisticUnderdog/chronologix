@@ -36,9 +36,10 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <div class="login-container">
+            <div class="hero">
                 <h1>Welcome to ChronoLogix</h1>
-                <p>Empowering Efficiency, Elevating Time.</p>
+                <h3 class="sub-heading">Empowering Efficiency, Elevating Time.</h3>
+            <div class="form-container">
                 <form class="form">
                     <h2>Check-In</h2>
                     <input type="email" id="email" name="email" placeholder="Email"
@@ -51,8 +52,10 @@ export default class Login extends Component {
                     </input>
                     <button onClick={this.login}>Submit</button>
                 </form>
+                
                 <a>Forgot password?</a>
                 <a>Register</a>
+            </div>
             </div>
         )
     }

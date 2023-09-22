@@ -12,3 +12,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default app;
+
+const signUp = (email, password) => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Handle successful sign-up
+      })
+      .catch((error) => {
+        // Handle sign-up errors
+      });
+  };
+  
+  const addDocument = (collectionName, data) => {
+    const db = firebase.firestore();
+    db.collection(collectionName).add(data)
+      .then((docRef) => {
+        // Handle successful addition
+      })
+      .catch((error) => {
+        // Handle error
+      });
+  };

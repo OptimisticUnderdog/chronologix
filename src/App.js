@@ -24,6 +24,11 @@ export default class App extends Component {
       }
     })
   }
+  toggleSignup = () => {
+    this.setState((prevState) => ({
+      showSignup: !prevState.showSignup,
+    }));
+  };
   render() {
     return (
       <div className="App">

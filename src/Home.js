@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './config/fire.js';
 import './Home.css';
-import Signout from './Signout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChartBar, faCogs, faQuestionCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,6 +22,7 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.timerInterval = setInterval(this.updateTimer, 1000);
+    this.getLocation();
   }
 
   componentWillUnmount() {
@@ -46,6 +46,46 @@ export default class Home extends Component {
     return `${hours}:${minutes}:${remainingSeconds}`;
   }
 
+  // Function to request user's location
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showLocation, this.handleLocationError);
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  }
+
+  // Function to handle location retrieval success
+  showLocation = (position) => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    // Reverse geocoding service 
+    const apiKey = 'bc715356bc3a4ef7ae201278ed4ba1f2';
+    const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.results && data.results.length > 0) {
+          const address = data.results[0].formatted;
+          this.setState({ location: address });
+        } else {
+          this.setState({ location: "Location not found" });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching location data:", error);
+        this.setState({ location: "Error fetching location data" });
+      });
+  };
+
+  // Function to handle location retrieval error
+  handleLocationError = (error) => {
+    console.error("Error getting user's location:", error);
+    this.setState({ location: "Error getting user's location" });
+  };
+
   render() {
     return (
       <div class="dashboard-container">
@@ -53,8 +93,10 @@ export default class Home extends Component {
         <div class="logo">
           <h1>ChronoLogix</h1>
         </div>
+        <div class="separator"></div>
        <ul class="menu">
-        <li><a href="#"><i class="fas fa-cogs"></i> Notifications</a></li>
+        <li>
+          <a href="#"><i class="fas fa-cogs"></i> Notifications</a></li>
           <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
           <li><a href="#"><i class="fas fa-cogs"></i> Timesheet</a></li>
           <li><a href="#"><i class="fas fa-cogs"></i> Profile</a></li>
@@ -72,19 +114,27 @@ export default class Home extends Component {
               </header>
               <section class="welcome-section">
                   <h3>Welcome Back!</h3>
-                  <p class="welcome-text">You have successfully signed in with ChronoLogix. Your time is now being tracked.</p>
+                  <p class="welcome-text">You have successfully signed in with ChronoLogix. Your location and time is now being tracked.</p>
               </section>
+
+              <div class="user-location">
+                <p class="location-text">Location: {this.state.location || "Loading..."}</p>
+              </div>
+
               <div class="timer-section">
                   <p class="time-remaining">Time remaining: {this.formatTime(this.state.timer)}</p>
               </div>
+              
               <div class="hero-image">
-                  <img src="countdown.svg" alt="hero-img" width="300" height="300"/>
+                  <img src="countdown.svg" alt="hero-img" width="200" height="200"/>
                   <p class="additional-text">Make the most of your productive hours. Happy and efficient working!</p>
               </div>
+              <footer>
+                &copy; 2023 ChronoLogix. All Rights Reserved.
+              </footer>
           </div>
       </div>
-  </div>
-           
+  </div>      
     );
   }
 }

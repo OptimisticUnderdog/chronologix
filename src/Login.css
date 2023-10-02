@@ -1,8 +1,13 @@
 /* hero container */
+* {
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .hero {
   position: relative; 
   height: 50vh; 
-  background-image: url('../public/banner-image.jpg'); 
+  background-image: url('../public/login.png'); 
   background-size: cover; 
   background-position: center; 
   color: rgb(0, 0, 0); 

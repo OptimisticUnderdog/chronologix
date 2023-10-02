@@ -41,7 +41,7 @@ export default class Login extends Component {
                 <h3 class="sub-heading">Empowering Efficiency, Elevating Time.</h3>
             <div class="form-container">
                 <form class="form">
-                    <h2>Check-In</h2>
+                    <h2>Login</h2>
                     <input type="email" id="email" name="email" placeholder="Email"
                         onChange={this.handleChange}
                         value={this.state.email}>

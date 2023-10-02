@@ -1,6 +1,17 @@
 # ChronoLogix
 
-ChronoLogix is an employee clocking-in system that enables employees to record their working hours, allows for sign-out before the allotted time lapses, and provides real-time tracking of hours worked.
+ChronoLogix is an employee clocking-in system that enables employees to record their working hours, allows for sign-out before the allocated time lapses, and provides real-time tracking of hours worked.
+
+## Authors
+
+- **Mfumu Mabunda**
+  - Email: [mabunda.wealth@gmail.com](mailto:mabunda.wealth@gmail.com)
+  - GitHub: [@OptimisticUnderdog](https://github.com/OptimisticUnderdog)
+  
+- **Tokologo Chabalala**
+  - Email: [tokocha81@gmail.com](mailto:tokocha81@gmail.com)
+  - GitHub: [@Tokologo1](https://github.com/Tokologo1)
+
 
 ## Features
 
@@ -14,16 +25,11 @@ ChronoLogix is an employee clocking-in system that enables employees to record t
 
 To start using ChronoLogix, follow these steps:
 
-1. **Clock In**:  Log in to the ChronoLogix system using your username and password to start your work shift.
+1. **Sign-In**:  Log in to the ChronoLogix system using your username and password to start your work shift.
 
-2. **Clock Out**: When you finish your shift or take a break, click on the "Clock Out" button.
+2. **Sign-Out**: When you finish your shift or take a break, click on the "Clock Out" button.
 
 3. **Hour Tracking**: ChronoLogix will display the hours worked during your shift.
-
-## Screenshots
-
-![Clock In]
-![Clock Out]
 
 ## Reporting Issues
 

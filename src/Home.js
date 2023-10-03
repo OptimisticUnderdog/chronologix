@@ -2,15 +2,25 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './config/fire.js';
 import './Home.css';
+import TimesheetPopup from './TimesheetPopup';
+import AnalyticsPopup from './AnalyticsPopup.js';
+import ProfilePopup from './ProfilePopup';
+import NotificationsPopup from './NotificationPopup';
+import SupportPopup from './SupportPopup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChartBar, faCogs, faQuestionCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       timer: 8 * 60 * 60, // 8 hours in seconds
+      showNotifications: false,
+      showAnalyticsPopup: false,
+      showTimesheetPopup: false,
+      showProfilePopup: false,
+      showSupportPopup: false,
     };
   }
 
@@ -86,7 +96,48 @@ export default class Home extends Component {
     this.setState({ location: "Error getting user's location" });
   };
 
+  toggleNotifications = () => {
+    this.setState((prevState) => ({
+      showNotifications: !prevState.showNotifications,
+    }));
+  }
+
+  handleCloseNotification = () => {
+    this.setState({ showNotifications: false });
+  }
+
+  toggleAnalyticsPopup = () => {
+    this.setState((prevState) => ({
+      showAnalyticsPopup: !prevState.showAnalyticsPopup,
+    }));
+  };
+
+  toggleTimesheetPopup = () => {
+    this.setState((prevState) => ({
+      showTimesheetPopup: !prevState.showTimesheetPopup,
+    }));
+  };
+  
+  toggleProfilePopup = () => {
+    this.setState((prevState) => ({
+      showProfilePopup: !prevState.showProfilePopup,
+    }));
+  };  
+
+  toggleSupportPopup = () => {
+    this.setState((prevState) => ({
+      showSupportPopup: !prevState.showSupportPopup,
+    }));
+  }; 
+
   render() {
+
+    const notificationContent = (
+      <div>
+        <h3>New Notification</h3>
+      </div>
+    );
+
     return (
       <div class="dashboard-container">
         <div class="side-panel">
@@ -95,25 +146,65 @@ export default class Home extends Component {
         </div>
         <div class="separator"></div>
        <ul class="menu">
-        <li>
-          <a href="#"><i class="fas fa-cogs"></i> Notifications</a></li>
-          <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
-          <li><a href="#"><i class="fas fa-cogs"></i> Timesheet</a></li>
-          <li><a href="#"><i class="fas fa-cogs"></i> Profile</a></li>
-          <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
-          <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
-          <li><a href="#"><i class="fas fa-cogs"></i> FAQ</a></li>
+        <h6 class="logo">Menu</h6>
+          <li><a href="#" onClick={this.toggleNotifications}><i class="fas fa-cogs"></i> Notifications</a></li>
+          <li><a href="#" onClick={this.toggleAnalyticsPopup}><i class="fas fa-chart-bar"></i> Analytics</a></li>
+          <li><a href="#" onClick={this.toggleTimesheetPopup}><i class="fas fa-cogs"></i> Timesheet</a></li>
+          <li><a href="#" onClick={this.toggleProfilePopup}><i class="fas fa-cogs"></i> Profile</a></li>
+          <li><a href="#" onClick={this.toggleSupportPopup}><i class="fas fa-question-circle"></i> Support</a></li>
           <button class="logout-button" onClick={this.logout}>Logout</button>
         </ul>
       </div>
       <div class="main-content">
+          {this.state.showNotifications && (
+            <NotificationsPopup
+              showNotifications={this.state.showNotifications}
+              onClose={this.handleCloseNotification}
+              notificationContent={notificationContent}
+            />
+          )}
+
+          {this.state.showAnalyticsPopup && (
+            <AnalyticsPopup
+              showAnalytics={this.state.showAnalyticsPopup} // Use the correct prop name here
+              onClose={this.toggleAnalyticsPopup}
+            />
+          )}
+
+          {this.state.showTimesheetPopup && (
+            <TimesheetPopup
+              showTimesheet={this.state.showTimesheetPopup}
+              onClose={this.toggleTimesheetPopup}
+            />
+          )}
+
+          {this.state.showProfilePopup && (
+            <ProfilePopup
+              showProfile={this.state.showProfilePopup}
+              onClose={this.toggleProfilePopup}
+            />
+          )}
+
+          {this.state.showSupportPopup && (
+            <SupportPopup 
+              showSupport={this.state.showSupportPopup} 
+              onClose={this.toggleSupportPopup} 
+            />
+          )}
+
+
+          <div class="home-banner">
+            <header class="header">
+              <h1>ChronoLogix</h1>
+              <h3>Empowering Efficiency, Elevating Time.</h3>
+            </header>
+          </div>
+
+          <div class="separator"></div>
+
           <div class="home-container">
-              <header class="header">
-                  <h1>ChronoLogix</h1>
-                  <h3>Empowering Efficiency, Elevating Time.</h3>
-              </header>
               <section class="welcome-section">
-                  <h3>Welcome Back!</h3>
+                  <h1>Welcome Back!</h1>
                   <p class="welcome-text">You have successfully signed in with ChronoLogix. Your location and time is now being tracked.</p>
               </section>
 
@@ -126,7 +217,7 @@ export default class Home extends Component {
               </div>
               
               <div class="hero-image">
-                  <img src="countdown.svg" alt="hero-img" width="200" height="200"/>
+                  <img src="#" alt=""/>
                   <p class="additional-text">Make the most of your productive hours. Happy and efficient working!</p>
               </div>
               <footer>
@@ -138,3 +229,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home;

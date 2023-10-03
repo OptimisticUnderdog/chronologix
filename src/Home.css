@@ -28,9 +28,9 @@
 
 .separator {
     width: 100%;
-    height: 1px;
+    height: 3px;
     background-color: #fff;
-    margin: 10px 0;
+    margin: 5px 0;
 }
   
 
@@ -67,30 +67,59 @@
     padding: 10px;
 }
 
+.notifications-container {
+    background-color: #fff; /* Background color for notifications */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 /* Dashboard Container */
 .home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    background-image: url(../public/countdown.svg);
+    background-position: bottom right; /* Position the background image at the bottom right */
+    background-repeat: no-repeat;
+    background-size: auto 65%; /* Prevent the image from repeating */
+    height: 85vh;
+    background-color: #d1d1d1;
+}
+.home-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1%;
+    justify-content: center;
+    height: 20vh;
+    background-color: #d1d1d1;
 }
   
   /* Header */
 .header {
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
   
 .header h1 {
     font-size: 35px;
     color: #333;
 }
+
+.home-banner h1 {
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.home-banner h3 {
+    font-size: 15px;
+}
   
 .header h3 {
-    font-size: 18px;
-    color: #666; 
+    font-size: 15px;
+    color: #333;
 }
   
   /* Welcome Section */
@@ -131,7 +160,7 @@
     background-color: #007bff;
     color: #fff;
     font-size: 18px;
-    margin-top: 110%;
+    margin-top: 130%;
     padding: 15px 50px;
     border: none;
     border-radius: 0.5rem;

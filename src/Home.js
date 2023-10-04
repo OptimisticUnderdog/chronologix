@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './config/fire.js';
-import Signout from './Signout.js';
 import './Home.css';
 import TimesheetPopup from './TimesheetPopup';
 import AnalyticsPopup from './AnalyticsPopup.js';
@@ -11,8 +10,6 @@ import SupportPopup from './SupportPopup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChartBar, faCogs, faQuestionCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import * as FeatherIcons from 'feather-icons-react';
-import { MapPin, Layers, Aperture, LogOut } from 'feather-icons-react';
-
 
 
 class Home extends Component {
@@ -20,7 +17,6 @@ class Home extends Component {
     super(props);
     this.state = {
       timer: 8 * 60 * 60, // 8 hours in seconds
-      isLogoutClicked: false,
       showNotifications: false,
       showAnalyticsPopup: false,
       showTimesheetPopup: false,
@@ -51,7 +47,7 @@ class Home extends Component {
   };
 
   logout = () => {
-    this.setState({ isLogoutClicked: true });
+    firebase.auth().signOut();
   };
 
   formatTime(seconds) {
@@ -143,10 +139,6 @@ class Home extends Component {
       </div>
     );
 
-    if (this.state.isLogoutClicked) {
-      return <Signout />;
-    }
-
     return (
       <div class="dashboard-container">
         <div class="side-panel">
@@ -161,9 +153,7 @@ class Home extends Component {
           <li><a href="#" onClick={this.toggleTimesheetPopup}><i class="fas fa-cogs"></i> Timesheet</a></li>
           <li><a href="#" onClick={this.toggleProfilePopup}><i class="fas fa-cogs"></i> Profile</a></li>
           <li><a href="#" onClick={this.toggleSupportPopup}><i class="fas fa-question-circle"></i> Support</a></li>
-          <button className="logout-button" onClick={this.logout}>
-            <FeatherIcons.LogOut size={15} color="white" /> Logout
-          </button>
+          <button class="logout-button" onClick={this.logout}><FeatherIcons.LogOut size={15} color="white" />  Logout</button>
         </ul>
       </div>
       <div class="main-content">
@@ -177,7 +167,7 @@ class Home extends Component {
 
           {this.state.showAnalyticsPopup && (
             <AnalyticsPopup
-              showAnalytics={this.state.showAnalyticsPopup}
+              showAnalytics={this.state.showAnalyticsPopup} 
               onClose={this.toggleAnalyticsPopup}
             />
           )}
@@ -215,8 +205,8 @@ class Home extends Component {
 
           <div class="home-container">
               <section class="welcome-section">
-                <h1 style={{ fontSize: '40px', fontWeight: 'bold' }}>Welcome Back!</h1>
-                <p class="welcome-text">You have successfully signed in with ChronoLogix. Your location and time is now being tracked.</p>
+              <h1 style={{ fontSize: '40px', fontWeight: 'bold' }}>Welcome Back!</h1>
+                  <p class="welcome-text">You have successfully signed in with ChronoLogix. Your location and time is now being tracked.</p>
               </section>
 
               <div class="user-location">

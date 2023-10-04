@@ -21,11 +21,6 @@
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-/*.hero h1 {
-  font-size: 35px;
-  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
-}*/
-
 .sub-heading {
   position: relative;
   color: white;
@@ -51,6 +46,10 @@
   padding: 60px 10px 80px 10px;
   text-align: center;
   max-width: 400px;
+}
+
+.form h2 {
+  font-size: 35px;
 }
 
 .form h1 {

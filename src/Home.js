@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './config/fire.js';
+import Signout from './Signout.js';
 import './Home.css';
 import TimesheetPopup from './TimesheetPopup';
 import AnalyticsPopup from './AnalyticsPopup.js';
@@ -9,6 +10,9 @@ import NotificationsPopup from './NotificationPopup';
 import SupportPopup from './SupportPopup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChartBar, faCogs, faQuestionCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import * as FeatherIcons from 'feather-icons-react';
+import { MapPin, Layers, Aperture, LogOut } from 'feather-icons-react';
+
 
 
 class Home extends Component {
@@ -16,6 +20,7 @@ class Home extends Component {
     super(props);
     this.state = {
       timer: 8 * 60 * 60, // 8 hours in seconds
+      isLogoutClicked: false,
       showNotifications: false,
       showAnalyticsPopup: false,
       showTimesheetPopup: false,
@@ -46,7 +51,7 @@ class Home extends Component {
   };
 
   logout = () => {
-    firebase.auth().signOut();
+    this.setState({ isLogoutClicked: true });
   };
 
   formatTime(seconds) {
@@ -138,6 +143,10 @@ class Home extends Component {
       </div>
     );
 
+    if (this.state.isLogoutClicked) {
+      return <Signout />;
+    }
+
     return (
       <div class="dashboard-container">
         <div class="side-panel">
@@ -146,13 +155,15 @@ class Home extends Component {
         </div>
         <div class="separator"></div>
        <ul class="menu">
-        <h6 class="logo">Menu</h6>
+       <h3 class="head" style={{ color: '#fff' }}>Dashboard <FeatherIcons.Layers size={20} color="white" /></h3>
           <li><a href="#" onClick={this.toggleNotifications}><i class="fas fa-cogs"></i> Notifications</a></li>
           <li><a href="#" onClick={this.toggleAnalyticsPopup}><i class="fas fa-chart-bar"></i> Analytics</a></li>
           <li><a href="#" onClick={this.toggleTimesheetPopup}><i class="fas fa-cogs"></i> Timesheet</a></li>
           <li><a href="#" onClick={this.toggleProfilePopup}><i class="fas fa-cogs"></i> Profile</a></li>
           <li><a href="#" onClick={this.toggleSupportPopup}><i class="fas fa-question-circle"></i> Support</a></li>
-          <button class="logout-button" onClick={this.logout}>Logout</button>
+          <button className="logout-button" onClick={this.logout}>
+            <FeatherIcons.LogOut size={15} color="white" /> Logout
+          </button>
         </ul>
       </div>
       <div class="main-content">
@@ -166,7 +177,7 @@ class Home extends Component {
 
           {this.state.showAnalyticsPopup && (
             <AnalyticsPopup
-              showAnalytics={this.state.showAnalyticsPopup} // Use the correct prop name here
+              showAnalytics={this.state.showAnalyticsPopup}
               onClose={this.toggleAnalyticsPopup}
             />
           )}
@@ -195,7 +206,7 @@ class Home extends Component {
 
           <div class="home-banner">
             <header class="header">
-              <h1>ChronoLogix</h1>
+              <h1>ChronoLogix  <FeatherIcons.Aperture size={40} color="black" /></h1>
               <h3>Empowering Efficiency, Elevating Time.</h3>
             </header>
           </div>
@@ -204,16 +215,18 @@ class Home extends Component {
 
           <div class="home-container">
               <section class="welcome-section">
-                  <h1>Welcome Back!</h1>
-                  <p class="welcome-text">You have successfully signed in with ChronoLogix. Your location and time is now being tracked.</p>
+                <h1 style={{ fontSize: '40px', fontWeight: 'bold' }}>Welcome Back!</h1>
+                <p class="welcome-text">You have successfully signed in with ChronoLogix. Your location and time is now being tracked.</p>
               </section>
 
               <div class="user-location">
-                <p class="location-text">Location: {this.state.location || "Loading..."}</p>
+                <p class="location-text"><FeatherIcons.MapPin size={20} color="black" />  Location: {this.state.location || "Loading..."}</p>
               </div>
 
               <div class="timer-section">
-                  <p class="time-remaining">Time remaining: {this.formatTime(this.state.timer)}</p>
+                  <p class="time-remaining">
+                    Time remaining: <span className="countdown">{this.formatTime(this.state.timer)}</span>
+                  </p>
               </div>
               
               <div class="hero-image">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './login.css';
-import firebase from './config/fire.js'
+import firebase from './config/fire.js';
+import * as FeatherIcons from 'feather-icons-react';
 
 
 export default class Login extends Component {
@@ -50,7 +51,7 @@ export default class Login extends Component {
                         onChange={this.handleChange}
                         value={this.state.password}>
                     </input>
-                    <button onClick={this.login}>Submit</button>
+                    <button onClick={this.login}><FeatherIcons.LogIn size={17} color="white" /> Submit</button>
                 </form>
                 
                 <a>Forgot password?</a>

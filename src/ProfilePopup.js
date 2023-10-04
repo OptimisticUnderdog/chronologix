@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as FeatherIcons from 'feather-icons-react';
 
 class ProfilePopup extends Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class ProfilePopup extends Component {
     return (
       <div style={profileStyle}>
         <div className="profile-container">
-          <h2>Profile</h2>
+          <h2>Profile  <FeatherIcons.User size={20} color="black" /></h2>
           <div className="avatar-container">
             {avatarUrl ? (
               <img src={avatarUrl} alt="Avatar" />

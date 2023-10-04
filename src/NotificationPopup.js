@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as FeatherIcons from 'feather-icons-react';
 
 class NotificationPopup extends Component {
   render() {
@@ -42,7 +43,7 @@ class NotificationPopup extends Component {
     return (
       <div style={popupStyle}>
         <div className="notifications-container">
-                <h2>Notifications</h2>
+                <h2>Notifications  <FeatherIcons.Bell size={20} color="black" /></h2> 
                 <ul style={{ padding: 0, margin: 0 }}>
                     <li style={listItemStyle}>Check your schedule for today... <span style={{ color: 'navy' }}>New</span></li>
                     <li style={listItemStyle}>Task deadline approaching... <span style={{ color: 'navy' }}>New</span></li>

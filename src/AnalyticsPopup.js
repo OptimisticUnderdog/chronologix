@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AnalyticsPopup from './AnalyticsPopup';
+import * as FeatherIcons from 'feather-icons-react';
 
 class Analytics extends Component {
   render() {
@@ -55,7 +56,7 @@ class Analytics extends Component {
     return (
       <div style={analyticsStyle}>
       <div className="analytics-container" style={analyticsContainerStyle}>
-      <h2>Analytics</h2>
+      <h2>Analytics  <FeatherIcons.Clipboard size={20} color="black" /></h2>
         <ul style={{ padding: 0, margin: 0 }}>
             <li style={listItemStyle}>Total hours worked last week: 43.5 hours</li>
             <li style={listItemStyle}>On-going Project completion rate: 65%</li>

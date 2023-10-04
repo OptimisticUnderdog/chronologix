@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as FeatherIcons from 'feather-icons-react';
 
 class TimesheetPopup extends Component {
   render() {
@@ -53,7 +54,7 @@ class TimesheetPopup extends Component {
       return (
         <div style={timesheetStyle}>
           <div className="timesheet-container">
-            <h2>Timesheet</h2>
+            <h2>Timesheet  <FeatherIcons.Calendar size={20} color="black" /></h2>
             <table style={tableStyle}>
               <thead>
                 <tr>

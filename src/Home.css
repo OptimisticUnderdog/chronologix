@@ -1,6 +1,6 @@
 /* Dashboard Container */
-* {
-    color:#333;
+body {
+    color:#181717;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -32,6 +32,10 @@
     background-color: #fff;
     margin: 5px 0;
 }
+
+.dashboard-container .separator {
+    margin: 50;
+}
   
 
 .side-panel ul {
@@ -48,7 +52,7 @@
 
 .menu li:hover {
     background-color: #007bff;
-    width: 76%;
+    width: 75%;
     color: #fff;
     cursor: pointer;
     border-radius: 5px;
@@ -68,7 +72,7 @@
 }
 
 .notifications-container {
-    background-color: #fff; /* Background color for notifications */
+    background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -81,9 +85,9 @@
     align-items: center;
     justify-content: center;
     background-image: url(../public/countdown.svg);
-    background-position: bottom right; /* Position the background image at the bottom right */
+    background-position: bottom right;
     background-repeat: no-repeat;
-    background-size: auto 65%; /* Prevent the image from repeating */
+    background-size: auto 65%; 
     height: 85vh;
     background-color: #d1d1d1;
 }
@@ -105,7 +109,7 @@
   
 .header h1 {
     font-size: 35px;
-    color: #333;
+    color: #070707;
 }
 
 .home-banner h1 {
@@ -119,7 +123,7 @@
   
 .header h3 {
     font-size: 15px;
-    color: #333;
+    color: #070707;
 }
   
   /* Welcome Section */
@@ -130,12 +134,12 @@
   
 .welcome-text {
     font-size: 18px;
-    color: #333; 
+    color: #070707; 
 }
   
 .additional-text {
     font-size: 16px;
-    color: #666;
+    color: #070707;
 }
   
   /* Timer Section */
@@ -146,7 +150,29 @@
   
 .time-remaining {
     font-size: 24px;
-    color: #333;
+    color: #070707;
+}
+
+.countdown {
+    font-size: 26px;
+    font-weight: 900;
+    color: #070707;
+    animation: countdown-animation 2s linear infinite;
+}
+  
+@keyframes countdown-animation {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    30% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
 }
   
   /* Hero Image */
@@ -160,7 +186,7 @@
     background-color: #007bff;
     color: #fff;
     font-size: 18px;
-    margin-top: 130%;
+    margin-top: 140%;
     padding: 15px 50px;
     border: none;
     border-radius: 0.5rem;
@@ -184,13 +210,13 @@
   
 .support-text {
     font-size: 16px;
-    color: #333;
+    color: #070707;
     margin-bottom: 10px;
 }
   
 .success-text {
     font-size: 18px;
-    color: #333;
+    color: #070707;
 }
   
 /* Media Query for Responsive Design */

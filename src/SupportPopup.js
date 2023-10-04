@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as FeatherIcons from 'feather-icons-react';
 
 class SupportPopup extends Component {
   // FAQ data
@@ -51,9 +52,9 @@ class SupportPopup extends Component {
     return (
       <div style={supportStyle}>
         <div className="support-container">
-          <h2>Support</h2>
+          <h2>Support  <FeatherIcons.HelpCircle size={20} color="black" /></h2>
           <p>
-            Contact our support team:
+            Contact our support team: <FeatherIcons.PhoneCall size={15} color="black" />
           </p>
           <ul>
             <li>Email: <a href="mailto:support@chronologix.com">support@chronologix.com</a></li>

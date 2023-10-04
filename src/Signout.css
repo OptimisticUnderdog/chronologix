@@ -1,0 +1,46 @@
+/* Signout Container */
+.signout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d1d1d1;
+}
+  
+  /* Signout Content */
+.signout-content {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 50px 40px rgb(0, 60, 138);
+}
+  
+  /* Signout Heading */
+.signout-heading {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; /* Customize the color as needed */
+}
+  
+  /* Signout Text */
+.signout-text {
+    font-size: 18px;
+    color: #555; /* Customize the color as needed */
+}
+  
+  /* Login Link */
+.login-link {
+    color: #007bff; /* Customize the link color as needed */
+}
+  
+.logout-icon {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border-radius: 50%; /* Makes the image round, adjust as needed */
+    border: 2px solid #007bff; /* Add a border with a blue color, adjust as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow, adjust as needed */
+    margin: 20px auto; /* Center the image horizontally with some margin */
+    display: block; /* Make the image a block element */
+}

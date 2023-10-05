@@ -49,13 +49,15 @@
 }
 
 .form h2 {
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .form h1 {
   margin-bottom: 20px;
 }
 
+.form input[type="name"],
+.form input[type="surname"],
 .form input[type="email"],
 .form input[type="password"] {
   width: 80%;

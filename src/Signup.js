@@ -6,6 +6,8 @@ export default class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: "",
+            surname:"",
             email: "",
             password: ""
         };
@@ -39,21 +41,21 @@ export default class Signup extends Component {
                     <h2>Sign-Up</h2>
                     
                     <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="name"
+                        id="name"
+                        name="name"
                         placeholder="Name"
                         onChange={this.handleChange}
-                        value={this.state.email}>
+                        value={this.state.name}>
                     </input>
 
                     <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="surname"
+                        id="surname"
+                        name="surname"
                         placeholder="Surname"
                         onChange={this.handleChange}
-                        value={this.state.email}>
+                        value={this.state.surname}>
                     </input>
 
 

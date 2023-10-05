@@ -37,5 +37,6 @@ If you encounter any issues or have questions, please contact our support team a
 
 ## Attribution
 
-Illustrations used in this documentation are provided by [Freepik](https://www.freepik.com) and are used under the [Freepik License](https://www.freepik.com/terms-of-use). 
+- Illustrations used in this documentation are provided by[Freepik](https://www.freepik.com) and are used under the [Freepik License](https://www.freepik.com/terms-of-use). 
+- Favicon by [Favicon](favicon.io).
 

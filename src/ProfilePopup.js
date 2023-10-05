@@ -40,6 +40,13 @@ class ProfilePopup extends Component {
       zIndex: '1000',
     };
 
+    const avatarStyle = {
+      width: '100px', // Add your desired width
+      height: '100px', // Add your desired height
+      borderRadius: '50%', // Make it a circular avatar
+      objectFit: 'cover', // Ensure the image covers the entire circle
+    };
+
     const closeButtonStyle = {
       backgroundColor: '#007bff',
       color: '#fff',
@@ -59,12 +66,14 @@ class ProfilePopup extends Component {
     return (
       <div style={profileStyle}>
         <div className="profile-container">
-          <h2>Profile  <FeatherIcons.User size={20} color="black" /></h2>
+          <h2>
+            Profile <FeatherIcons.User size={20} color="black" />
+          </h2>
           <div className="avatar-container">
             {avatarUrl ? (
-              <img src={avatarUrl} alt="Avatar" />
+              <img src={avatarUrl} alt="Avatar" style={avatarStyle} />
             ) : (
-              <div className="avatar-placeholder">No Avatar</div>
+              <div className="avatar-placeholder">Upload Avatar</div>
             )}
           </div>
           {uploading ? (
@@ -72,30 +81,23 @@ class ProfilePopup extends Component {
           ) : (
             <div>
               <input type="file" accept="image/*" onChange={this.handleAvatarChange} />
-              <button
-                onClick={() => {
-                  // Clear the uploaded avatar
-                  this.setState({ avatarUrl: '' });
-                }}
-              >
-                Change Avatar
-              </button>
+              
             </div>
           )}
         </div>
-        
+
         <h2>Details:</h2>
         <div>
-            <label>Name:</label>
-            <p>Mfumu Wealth Mabunda</p>
+          <label>Name:</label>
+          <p>Mfumu Wealth Mabunda</p>
         </div>
         <div>
-            <label>Email:</label>
-            <p>mabunda.wealth@gmail.com</p>
+          <label>Email:</label>
+          <p>mabunda.wealth@gmail.com</p>
         </div>
         <div>
-            <label>Role:</label>
-            <p>Front-end Engineer</p>
+          <label>Role:</label>
+          <p>Front-end Engineer</p>
         </div>
 
         <button
